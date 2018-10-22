@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var history : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        if UserDefaults.standard.array(forKey: "history") != nil {
+            history = UserDefaults.standard.array(forKey: "history") as! [String]
+        }
     }
     
     var numerator : Int = 0
@@ -23,9 +26,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var equalsButton: UIButton!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let data = history
+        let secondVC = segue.destination as! HistoryViewController
+        secondVC.incomingData = data
+    }
+    
     @IBAction func numPressed(_ sender: Any) {
         let thisNum : Int = (sender as AnyObject).tag
-        
+        print(thisNum)
         if op == 0 || op >= 6 {
             if numerator < Int.max {
                 numerator = (numerator * 10) + thisNum
@@ -48,12 +57,15 @@ class ViewController: UIViewController {
             switch op {
             case 1:
                 product = numerator + denominator
+                history.append("\(numerator) + \(denominator) = \(product)")
                 break
             case 2:
                 product = numerator - denominator
+                history.append("\(numerator) - \(denominator) = \(product)")
                 break
             case 3:
                 product = numerator * denominator
+                history.append("\(numerator) * \(denominator) = \(product)")
                 break
             case 4:
                 if denominator == 0 {
@@ -61,13 +73,20 @@ class ViewController: UIViewController {
                 } else {
                     product = numerator / denominator
                 }
+                history.append("\(numerator) / \(denominator) = \(product)")
                 break
             case 5:
-                product = numerator % denominator
+                if denominator == 0 {
+                    product = 0
+                } else {
+                    product = numerator % denominator
+                }
+                history.append("\(numerator) % \(denominator) = \(product)")
                 break
             case 6:
                 numbers.append(numerator)
                 product = numbers.count
+                history.append("Count of \(numbers) = \(product)")
                 numbers.removeAll()
                 break
             case 7:
@@ -79,6 +98,7 @@ class ViewController: UIViewController {
                 
                 product = product / (numbers.count)
                 
+                history.append("Average of \(numbers) = \(product)")
                 numbers.removeAll()
                 break
             default:
@@ -112,6 +132,8 @@ class ViewController: UIViewController {
                 }
             }
             
+            history.append("\(numerator)! = \(product)")
+            
             numerator = product
             op = 0
             denominator = 0
@@ -121,6 +143,8 @@ class ViewController: UIViewController {
             equalsButton.setTitle("=", for: .normal)
             op = thisOp
         }
+        
+        UserDefaults.standard.set(history, forKey: "history")
     }
     
     func updateProductLabel(_ newProduct: Int) {

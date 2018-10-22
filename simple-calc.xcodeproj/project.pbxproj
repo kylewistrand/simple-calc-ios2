@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2F8A0F217DA77B00F3133D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F8A0E217DA77B00F3133D /* HistoryViewController.swift */; };
 		EEA2214E217582D20070B023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA2214D217582D20070B023 /* AppDelegate.swift */; };
 		EEA22150217582D20070B023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA2214F217582D20070B023 /* ViewController.swift */; };
 		EEA22153217582D20070B023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA22151217582D20070B023 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE2F8A0E217DA77B00F3133D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		EEA2214A217582D20070B023 /* simple-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA2214D217582D20070B023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEA2214F217582D20070B023 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				EEA2214D217582D20070B023 /* AppDelegate.swift */,
 				EEA2214F217582D20070B023 /* ViewController.swift */,
 				EEA22151217582D20070B023 /* Main.storyboard */,
+				EE2F8A0E217DA77B00F3133D /* HistoryViewController.swift */,
 				EEA22154217582D20070B023 /* Assets.xcassets */,
 				EEA22156217582D20070B023 /* LaunchScreen.storyboard */,
 				EEA22159217582D20070B023 /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE2F8A0F217DA77B00F3133D /* HistoryViewController.swift in Sources */,
 				EEA22150217582D20070B023 /* ViewController.swift in Sources */,
 				EEA2214E217582D20070B023 /* AppDelegate.swift in Sources */,
 			);
